@@ -8,10 +8,14 @@ This is all using the normal Azure web app and its service point based integrati
 ## Overall Shape
 ![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/web-app-app-gateway.png "private web app")
 
-In the above diagram, there an an Azure Application Gateway that provides the entry point to the main web application. An application Gateway V2 can have both a public and a private IP address. For a truly private web application, the public endpoint to the gateway would not be used, but it is useful in this demonstration for ease of use. 
+In the above diagram, there an an Azure Application Gateway that provides the entry point to the main web application. An application Gateway V2 can have both a public and a private IP address. For a truly private web application, the public endpoint to the gateway would not be used, but it is useful in this demonstration for ease of use.
+
+The main web app that sits in the application gateway's VNet, is a simple .NET Core web app, which has a couple of menu items that can call external web services.
 
 A virtual machine is also included to represent an internal user's PC/machine. Someone can run a remote desktop session to this machine to access the private endpoint of the application gateway.
 
 There are two virtual networks, one of which can represent a workload VNet and the other a remote services Vnet. These VNets are peered to provide a routing mechanism for requests. This could also be viewed as the hub and spoke architecture, where the application gateway VNet represents a spoke and the target VNet a hub.
 
-In the 
+In the target VNet there are two web APIs, one hosted in another app services instance and the other in an Azure Container Instance (ACI). The latter is useful as it can be exposted directly with a private IP address. The target web app also has its access restricted to a subnet in the target VNet - so it is also not exernally accessible.
+
+Finally, there is an Azure firewall in the target VNet. A custom route has been assigned to the main web app's subnet for force tunnel all requests from the web app to the firewall. The firewall by default blocks all outbound access, but will be configured to to allow a specific internet-hosted web API.
