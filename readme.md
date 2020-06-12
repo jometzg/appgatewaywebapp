@@ -21,4 +21,12 @@ In the target VNet there are two web APIs, one hosted in another app services in
 Finally, there is an Azure firewall in the target VNet. A custom route has been assigned to the main web app's subnet for force tunnel all requests from the web app to the firewall. The firewall by default blocks all outbound access, but will be configured to to allow a specific internet-hosted web API.
 
 ## The web app
-![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/webapp.png "private web app front end")
+![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/web-app.png "private web app front end")
+
+As can be seen, this is a simple web app that has two menus:
+* Weather - calls one of the web APIs in the target VNet to return some weather-related JSON.
+* IP Address - calls an internet hosted web API that is at [What is my IP Address](https://ifconfig.co/) 
+
+You can also see that the application gateway has a custom domain and an SSL certificate for that configured.
+
+Note: The internally-facing version of this web app, uses the usual HTTPS port of 443. So this does not conflict, the public port is 445. In normal circumstances 443 would be used.
