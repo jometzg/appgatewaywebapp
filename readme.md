@@ -19,3 +19,6 @@ There are two virtual networks, one of which can represent a workload VNet and t
 In the target VNet there are two web APIs, one hosted in another app services instance and the other in an Azure Container Instance (ACI). The latter is useful as it can be exposted directly with a private IP address. The target web app also has its access restricted to a subnet in the target VNet - so it is also not exernally accessible.
 
 Finally, there is an Azure firewall in the target VNet. A custom route has been assigned to the main web app's subnet for force tunnel all requests from the web app to the firewall. The firewall by default blocks all outbound access, but will be configured to to allow a specific internet-hosted web API.
+
+## The web app
+![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/webapp.png "private web app front end")
