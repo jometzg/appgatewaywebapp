@@ -84,4 +84,6 @@ password - (Optional) Password for the pfx file specified in data. Required if d
 
 key_vault_secret_id - (Optional) Secret Id of (base-64 encoded unencrypted pfx) Secret or Certificate object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if data is not set.
 ```
-(Terraform - application gateway)[https://www.terraform.io/docs/providers/azurerm/r/application_gateway.html#ssl_certificate]
+The configuration is shown here (Terraform - application gateway)[https://www.terraform.io/docs/providers/azurerm/r/application_gateway.html#ssl_certificate]
+
+There is an alternative configuration that uses key vault. But that would also require the application gateway to authenticate against the specific key vault where the certifcate is loaded.
