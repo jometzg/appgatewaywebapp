@@ -13,7 +13,7 @@ In addition this also demonstrates how this web app can access other private VNe
 
 This is all using the normal Azure web app and its service point based integration to VNets - so is much more cost-effective than using Application Service Environments (ASE).
 
-## Overall Shape
+## Architecture
 ![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/web-app-app-gateway.png "private web app")
 
 In the above diagram, there an an Azure Application Gateway that provides the entry point to the main web application. An application Gateway V2 can have both a public and a private IP address. For a truly private web application, the public endpoint to the gateway would not be used, but it is useful in this demonstration for ease of use.
