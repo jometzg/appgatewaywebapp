@@ -28,15 +28,6 @@ where:
 This will then give you a challenge to set a specific TXT setting in your domain's DNS services
 
 ![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/certificate/dns-challenge.png "DNS Challenge")
-
-This should result in some certificate files, but these need to be additionally processed to generate a PFX.
-```
-sudo openssl pkcs12 -export -in /etc/letsencrypt/live/YYYYYY.com/fullchain.pem -inkey /etc/letsencrypt/live/metronzone.com/privkey.pem -out YYYYYY.pfx
-Enter Export Password: b***s
-Verifying - Enter Export Password:
-```
-Following guide here [https://medium.com/@saurabh6790/generate-wildcard-ssl-certificate-using-lets-encrypt-certbot-273e432794d7]
-
 ```
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 Please deploy a DNS TXT record under the name
@@ -63,5 +54,14 @@ IMPORTANT NOTES:
  
    Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
    Donating to EFF:                    https://eff.org/donate-le
-
 ```
+
+This should result in some certificate files, but these need to be additionally processed to generate a PFX.
+```
+sudo openssl pkcs12 -export -in /etc/letsencrypt/live/YYYYYY.com/fullchain.pem -inkey /etc/letsencrypt/live/metronzone.com/privkey.pem -out YYYYYY.pfx
+Enter Export Password: b***s
+Verifying - Enter Export Password:
+```
+You should now have a PFX file that can be installed on the application gateway:
+
+![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/certificate/upload-to-gateway.png "Upload to application gateway")
