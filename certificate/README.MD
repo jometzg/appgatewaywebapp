@@ -6,9 +6,9 @@ This section is a brief guide to creating the SSL certificate and installing thi
 ## Create an SSL Certificate
 An internet domain name is needed prior to creating an SSL certificate. It is against one of the subdomains of this domain that the certificate is created. As part of this, it requires that the owner of the domain proves ownership by setting "TXT" values that the certificate authority checks during the certificate provisioning process.
 
-This guide uses (Let's Encrypt)[https://letsencrypt.org/]
+This guide uses [Let's Encrypt](https://letsencrypt.org/)
 
-Following guide here [https://medium.com/@saurabh6790/generate-wildcard-ssl-certificate-using-lets-encrypt-certbot-273e432794d7]
+Following guide here [Medium](https://medium.com/@saurabh6790/generate-wildcard-ssl-certificate-using-lets-encrypt-certbot-273e432794d7)
 
 Using a Linux command prompt - this could be Windows Subsystem for Linux (WSL) or even an Raspberry Pi (which is what was used)
 
@@ -84,6 +84,6 @@ password - (Optional) Password for the pfx file specified in data. Required if d
 
 key_vault_secret_id - (Optional) Secret Id of (base-64 encoded unencrypted pfx) Secret or Certificate object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if data is not set.
 ```
-The configuration is shown here (Terraform - application gateway)[https://www.terraform.io/docs/providers/azurerm/r/application_gateway.html#ssl_certificate]
+The configuration is shown here [Terraform - application gateway](https://www.terraform.io/docs/providers/azurerm/r/application_gateway.html#ssl_certificate)
 
 There is an alternative configuration that uses key vault. But that would also require the application gateway to authenticate against the specific key vault where the certifcate is loaded.
