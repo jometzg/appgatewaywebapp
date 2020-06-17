@@ -12,14 +12,15 @@ Following guide here [https://medium.com/@saurabh6790/generate-wildcard-ssl-cert
 
 Using a Linux command prompt - this could be Windows Subsystem for Linux (WSL) or even an Raspberry Pi (which is what was used)
 
-`./certbot-auto certonly \
+```
+./certbot-auto certonly \
 	--manual
 	--preferred-challenges=dns \
 	--email XXXXXX@gmail.com \
 	--server https://acme-v02.api.letsencrypt.org/directory \
 	--agree-tos \
 -d *.YYYYYY.com
-'
+```
 where:
 * you use the domain that you have admin rights to
 * an email address of the domain admin
@@ -27,4 +28,40 @@ where:
 This will then give you a challenge to set a specific TXT setting in your domain's DNS services
 
 ![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/certificate/dns-challenge.png "DNS Challenge")
-![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/web-app-app-gateway.png "private web app")
+
+This should result in some certificate files, but these need to be additionally processed to generate a PFX.
+```
+sudo openssl pkcs12 -export -in /etc/letsencrypt/live/YYYYYY.com/fullchain.pem -inkey /etc/letsencrypt/live/metronzone.com/privkey.pem -out YYYYYY.pfx
+Enter Export Password: b***s
+Verifying - Enter Export Password:
+```
+Following guide here [https://medium.com/@saurabh6790/generate-wildcard-ssl-certificate-using-lets-encrypt-certbot-273e432794d7]
+
+```
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Please deploy a DNS TXT record under the name
+_acme-challenge.YYYYYY.com with the following value:
+ 
+QlUBMmSXHim8WvtjD2zeQ9bULLdpinmW-54mCJphPks
+ 
+Before continuing, verify the record is deployed.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Press Enter to Continue
+Waiting for verification...
+Cleaning up challenges
+ 
+IMPORTANT NOTES:
+- Congratulations! Your certificate and chain have been saved at:
+   /etc/letsencrypt/live/metronzone.com/fullchain.pem
+   Your key file has been saved at:
+   /etc/letsencrypt/live/YYYYYY.com/privkey.pem
+   Your cert will expire on 2020-09-02. To obtain a new or tweaked
+   version of this certificate in the future, simply run certbot
+   again. To non-interactively renew *all* of your certificates, run
+   "certbot renew"
+- If you like Certbot, please consider supporting our work by:
+ 
+   Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+   Donating to EFF:                    https://eff.org/donate-le
+
+```
