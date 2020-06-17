@@ -62,6 +62,26 @@ sudo openssl pkcs12 -export -in /etc/letsencrypt/live/YYYYYY.com/fullchain.pem -
 Enter Export Password: b***s
 Verifying - Enter Export Password:
 ```
+
+## Use SSL Certificate
 You should now have a PFX file that can be installed on the application gateway:
 
 ![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/certificate/upload-to-gateway.png "Upload to application gateway")
+
+It should also be noted that DNS needs to be set to the application gateway IP address. For the public IP address, this will need to be set in your domain's DNS settings. For private IP addresses, then you DNS in your network should be used. This could be an Azure DNS zone or an on-premise DNS.
+
+## Terraform
+The Terraform definition for the application gateway can also be used to set the SSL certificate and this is the ideal approach.
+
+```
+A ssl_certificate block supports the following:
+
+name - (Required) The Name of the SSL certificate that is unique within this Application Gateway
+
+data - (Optional) PFX certificate. Required if key_vault_secret_id is not set.
+
+password - (Optional) Password for the pfx file specified in data. Required if data is set.
+
+key_vault_secret_id - (Optional) Secret Id of (base-64 encoded unencrypted pfx) Secret or Certificate object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if data is not set.
+```
+(Terraform - application gateway)[https://www.terraform.io/docs/providers/azurerm/r/application_gateway.html#ssl_certificate]
