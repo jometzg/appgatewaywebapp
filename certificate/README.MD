@@ -26,3 +26,4 @@ where:
 
 This will then give you a challenge to set a specific TXT setting in your domain's DNS services
 
+![alt text](https://github.com/jometzg/appgatewaywebapp/certificate/blob/master/dns-challenge.png "DNS Challenge")
