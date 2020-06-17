@@ -24,8 +24,10 @@ Finally, there is an Azure firewall in the target VNet. A custom route has been 
 ![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/web-app.png "private web app front end")
 
 As can be seen, this is a simple web app that has two menus:
-* Weather - calls one of the web APIs in the target VNet to return some weather-related JSON.
+* Weather (ACI) - calls one of the web APIs in the target VNet to return some weather-related JSON. This one is ACI hosted
+* Weather (web app) - As above, but hosted my Azure app services
 * IP Address - calls an internet hosted web API that is at [What is my IP Address](https://ifconfig.co/) 
+* Blocked - this is another internet hosted IP address service  [Apify](https://www.ipify.org/) but this has not been whitelisted by the firewall
 
 You can also see that the application gateway has a custom domain and an SSL certificate for that configured.
 
