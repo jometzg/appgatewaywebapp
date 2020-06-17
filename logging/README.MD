@@ -26,6 +26,6 @@ For high compliance environments, logs could also be written to Azure blob stora
 https://azure.microsoft.com/en-gb/blog/microsoft-azure-launches-tamper-proof-azure-immutable-blob-storage-for-financial-services/
 
 ## Azure Sentinel
-Sentinel is Microsoft's SEIM as a service. Log analytics workspaces can be ingested into Sentinel.
+Sentinel is Microsoft's SIEM as a service. Log analytics workspaces can be ingested into Sentinel.
 
 https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-collecting-logs-from-microsoft-services-and/ba-p/792669
