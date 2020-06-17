@@ -17,3 +17,5 @@ https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-security
 
 ## Application Insights
 This is more of an application level diagnostic tool, but can provide logs on end-user behaviour, dependencies etc. This is the goto place for understanding how a web application behaves.
+
+https://docs.microsoft.com/en-us/azure/azure-monitor/app/data-retention-privacy
