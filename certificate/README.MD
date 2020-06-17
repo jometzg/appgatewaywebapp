@@ -70,6 +70,9 @@ You should now have a PFX file that can be installed on the application gateway:
 
 It should also be noted that DNS needs to be set to the application gateway IP address. For the public IP address, this will need to be set in your domain's DNS settings. For private IP addresses, then you DNS in your network should be used. This could be an Azure DNS zone or an on-premise DNS.
 
+Below is a sample DNS A record which is shown pointing to the public IP address of the application gateway. This then results in a domain of app.yyyyy.com.
+![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/certificate/dns.png "DNS record for app.yyyyy.com")
+
 ## Terraform
 The Terraform definition for the application gateway can also be used to set the SSL certificate and this is the ideal approach.
 
