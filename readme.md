@@ -7,7 +7,7 @@ Increasingly customers are also adopting network architectures which limit the v
 In recent times, app services have gained the ability to restrict their inbound connections to a VNet subnet and to also be able to call other private services in other VNets or remote networks that are routable from VNets.
 
 ## This Guide
-This is a guide on how to configure an Azure app service (web app) to only be visible inside an VNet and fronted by application gateway, so that it can be accessed via a private IP address.
+This is a guide on how to configure an Azure app service (web app) to only be visible inside an VNet and fronted by application gateway, so that it can be accessed via a private IP address or via a public IP address (as separate use cases).
 
 In addition this also demonstrates how this web app can access other private VNet services and how to control the ability of the web app to access internet services using the Azure firewall.
 
