@@ -20,7 +20,7 @@ In the above diagram, there an an Azure Application Gateway that provides the en
 
 The main web app that sits in the application gateway's VNet, is a simple .NET Core web app, which has a couple of menu items that can call external web services.
 
-A virtual machine is also included to represent an internal user's PC/machine. Someone can run a remote desktop session to this machine to access the private endpoint of the application gateway.
+A virtual machine is also included to represent an internal user's PC/machine. This scenario can then be tested by running a remote desktop session to this machine to access the private endpoint of the application gateway.
 
 There are two virtual networks, one of which can represent a workload VNet and the other a remote services Vnet. These VNets are peered to provide a routing mechanism for requests. This could also be viewed as the hub and spoke architecture, where the application gateway VNet represents a spoke and the target VNet a hub.
 
