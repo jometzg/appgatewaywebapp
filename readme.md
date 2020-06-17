@@ -31,7 +31,7 @@ Finally, there is an Azure firewall in the target VNet. A custom route has been 
 ## The web app
 ![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/web-app.png "private web app front end")
 
-As can be seen, this is a simple web app that has two menus:
+As can be seen, this is a simple web app that has some menus:
 * Weather (ACI) - calls one of the web APIs in the target VNet to return some weather-related JSON. This one is ACI hosted
 * Weather (web app) - As above, but hosted my Azure app services
 * IP Address - calls an internet hosted web API that is at [What is my IP Address](https://ifconfig.co/) 
@@ -39,4 +39,6 @@ As can be seen, this is a simple web app that has two menus:
 
 You can also see that the application gateway has a custom domain and an SSL certificate for that configured.
 
-Note: The internally-facing version of this web app, uses the usual HTTPS port of 443. So this does not conflict, the public port is 445. In normal circumstances 443 would be used.
+### Note: 
+* The internally-facing version of this web app, uses the usual HTTPS port of 443. So this does not conflict, the public port is 445. In normal circumstances the default SSL port 443 would be used.
+* In order provide this capability requires a internet domain name and the ability to set its DNS settings. This demo used LetsEncrypt to generate a wildcard certificate for the domain. 
