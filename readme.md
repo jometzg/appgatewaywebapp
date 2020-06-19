@@ -6,7 +6,7 @@ Increasingly customers are also adopting network architectures which limit the v
 
 In recent times, app services have gained the ability to restrict their inbound connections to a VNet subnet and to also be able to call other private services in other VNets or remote networks that are routable from VNets.
 
-It is also worth noting that there is another capability in Azure called "Private Link". This is an evolution of the existing (service endpoint based mechanism). Whilst Private Link is generally available (GA), each of the Azure services manages its own timeline for implementing this feature. App services has this feature in preview at the time of writing (Private endpoints for Azure web app)[https://docs.microsoft.com/en-us/azure/app-service/networking/private-endpoint].
+It is also worth noting that there is another capability in Azure called "Private Link". This is an evolution of the existing (service endpoint based mechanism). Whilst Private Link is generally available (GA), each of the Azure services manages its own timeline for implementing this feature. App services has this feature in preview at the time of writing [Private endpoints for Azure web app](https://docs.microsoft.com/en-us/azure/app-service/networking/private-endpoint).
 
 ## This Guide
 This is a guide on how to configure an Azure app service (web app) to only be visible inside an VNet and fronted by application gateway, so that it can be accessed via a private IP address or via a public IP address (as separate use cases).
