@@ -41,7 +41,7 @@ This is an extension to pattern one. This means that there are two service plans
 The extra complexity over pattern one is probably worth it for the extra scalability.
 
 ### Pattern Three
-![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/serviceplans/multi-subnet.png "subnet for each web app")
+![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/serviceplans/multi-subnet2.png "subnet for each web app")
 
 Where scalability of the web apps is important and the deployment team can influence the design of the VNet, then this pattern can be used. But the big factor here is that there are a pair of subnets for each application on the VNet.
 
