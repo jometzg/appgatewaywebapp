@@ -10,6 +10,12 @@ It is also often the case that a number of separate applications (each of which 
 
 ![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/serviceplans/generic-multi-tier.png "generic multi-tier application")
 
+Looking at this architecture in terms of Azure networking and app services, here is an approach:
+
+![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/serviceplans/azure-multi-tier.png "Azure multi-tier application")
+
+In the above diagram we have the front-end web apps which are app restricted to the gateway subnet, which also has an application gateway instance. In this way, only requests from the application gateway will be accepted by the front-end web apps (or more strictly, on requests from the gateway subnet). The middle-tier (or API) web apps are likewise app restricted to the "webapp" subnet, which is also the subnet to which the front-end web app are VNet restricted. The middle-tier (or API) web apps are VNet integrated to allow APIs to access other VNet resources via peering or on-premise resources via an Express Route gateway.
+
 ## The documentation
 The documentation on app services [VNet integration](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) states a number of limitations:
 ![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/serviceplans/doc-excerpt.png "VNet integrations limitations")
