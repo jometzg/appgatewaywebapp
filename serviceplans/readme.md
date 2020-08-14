@@ -31,11 +31,11 @@ This is the simplest pattern in terms of providing restrictions to the front-end
 
 The impact of the service plan limitation means that ALL of the web apps will have to share the same service plan for this to work. This has the obvious limitations of scale and lack of isolation between the compute used for the web apps. 
 
-Where this pattern may be used is for low-scale web apps where a shared service plan is not an issue or where network restrictions mean a common VNet and subnets are required for all of thw web app workloads.
+Where this pattern may be used is for low-scale web apps where a shared service plan is not an issue or where network restrictions mean a common VNet and subnets are required for all of the web app workloads.
 
 ### Pattern Two
 ![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/serviceplans/separate-service-plan.png "separate on each tier service plans")
-This is an extension to pattern one. This means that there are two service plans, one for the front-end and one for the middle-tier (API). So this has more scalability than pattern one, but all applications still share the front-end and middle-tier service plans.
+This is an extension to pattern one. This means that there are two service plans, one for the front-end and one for the middle-tier (API). So this has more scalability than pattern one, but all applications still share common front-end and middle-tier service plans.
 The extra complexity over pattern one is probably worth it for the extra scalability.
 
 ### Pattern Three
