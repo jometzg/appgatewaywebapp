@@ -26,5 +26,12 @@ The item highlighed **The integration subnet can be used by only one App Service
 Depending on the customer needs, the above limitation results in what look like three potential approaches. These will be descibed in turn.
 
 ### Pattern One
-![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/serviceplans/shared-service-plan.png "sharing service plans")
+![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/serviceplans/overall-shared-service-plan.png "sharing service plans")
+This is the simplest pattern in terms of providing restrictions to the front-end and middle-tier (API) apps and allowing the API app to access onwards resources.
 
+The impact of the service plan limitation means that ALL of the web apps will have to share the same service plan for this to work. This has the obvious limitations of scale and lack of isolation between the compute used for the web apps. 
+
+Where this pattern may be used is for low-scale web apps where a shared service plan is not an issue or where network restrictions mean a common VNet and subnets are required for all of thw web app workloads.
+
+### Pattern Two
+![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/serviceplans/shared-service-plan.png "separate on each tier service plans")
