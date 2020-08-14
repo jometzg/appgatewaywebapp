@@ -34,4 +34,4 @@ The impact of the service plan limitation means that ALL of the web apps will ha
 Where this pattern may be used is for low-scale web apps where a shared service plan is not an issue or where network restrictions mean a common VNet and subnets are required for all of thw web app workloads.
 
 ### Pattern Two
-![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/serviceplans/shared-service-plan.png "separate on each tier service plans")
+![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/serviceplans/separate-service-plan.png "separate on each tier service plans")
