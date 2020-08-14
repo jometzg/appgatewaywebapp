@@ -27,6 +27,7 @@ Depending on the customer needs, the above limitation results in what look like 
 
 ### Pattern One
 ![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/serviceplans/overall-shared-service-plan.png "sharing service plans")
+
 This is the simplest pattern in terms of providing restrictions to the front-end and middle-tier (API) apps and allowing the API app to access onwards resources.
 
 The impact of the service plan limitation means that ALL of the web apps will have to share the same service plan for this to work. This has the obvious limitations of scale and lack of isolation between the compute used for the web apps. 
@@ -35,9 +36,11 @@ Where this pattern may be used is for low-scale web apps where a shared service 
 
 ### Pattern Two
 ![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/serviceplans/separate-service-plan.png "separate on each tier service plans")
+
 This is an extension to pattern one. This means that there are two service plans, one for the front-end and one for the middle-tier (API). So this has more scalability than pattern one, but all applications still share common front-end and middle-tier service plans.
 The extra complexity over pattern one is probably worth it for the extra scalability.
 
 ### Pattern Three
 ![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/serviceplans/multi-subnet.png "subnet for each web app")
-Where scalability of the web apps is important and the deployment team can influence the design of of the VNet, then this pattern can be used. But the big factor here is that there are a pair of subnets for each application on the VNet.
+
+Where scalability of the web apps is important and the deployment team can influence the design of the VNet, then this pattern can be used. But the big factor here is that there are a pair of subnets for each application on the VNet.
