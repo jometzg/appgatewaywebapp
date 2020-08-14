@@ -44,3 +44,7 @@ The extra complexity over pattern one is probably worth it for the extra scalabi
 ![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/serviceplans/multi-subnet.png "subnet for each web app")
 
 Where scalability of the web apps is important and the deployment team can influence the design of the VNet, then this pattern can be used. But the big factor here is that there are a pair of subnets for each application on the VNet.
+
+## Summary
+The service plan limitations for VNet integration of app services requires you to think more carefully about whether you can tolerate web apps sharing a service plan, thus allowing a number of applications to share common VNet subnets, or whether you need to define subnets per application in order to have service plans per application and therefore the most flexibility in terms of scaling your applications. With some customers, VNets are implemented by separate teams and this may also inform this decision.
+
