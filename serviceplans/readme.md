@@ -22,8 +22,8 @@ The documentation on app services [VNet integration](https://docs.microsoft.com/
 
 The item highlighed **The integration subnet can be used by only one App Service plan** is the the most important for planning how to implement a multi-tier web application with VNet integration.
 
-## Three potential patterns
-Depending on the customer needs, the above limitation results in what look like three potential approaches. These will be descibed in turn.
+## Four potential patterns
+Depending on the customer needs, the above limitation results in what look like four potential approaches. These will be descibed in turn.
 
 ### Pattern One
 ![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/serviceplans/overall-shared-service-plan.png "sharing service plans")
@@ -45,6 +45,12 @@ The extra complexity over pattern one is probably worth it for the extra scalabi
 
 Where scalability of the web apps is important and the deployment team can influence the design of the VNet, then this pattern can be used. But the big factor here is that there are a pair of subnets for each application on the VNet.
 
+## Pattern Four
+![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/serviceplans/multi-subnet4.png "subnet for each web app. Isolated front end")
+
+This is a variation of pattern two. In this case, if we want to guarantee that the front-end web app cannot itself access any remote resources, it is VNet integrated with an isolated VNet and the middle-tier (API) access restricted to its subnet.
+
 ## Summary
-The service plan limitations for VNet integration of app services requires you to think more carefully about whether you can tolerate web apps sharing a service plan, thus allowing a number of applications to share common VNet subnets, or whether you need to define subnets per application in order to have service plans per application and therefore the most flexibility in terms of scaling your applications. With some customers, VNets are implemented by separate teams and this may also inform this decision.
+The service plan limitations for VNet integration of app services requires you to think more carefully about whether you can tolerate web apps sharing a service plan, thus allowing a number of applications to share common VNet subnets, or whether you need to define subnets per application in order to have service plans per application and therefore the most flexibility in terms of scaling your applications. 
+With some customers, where VNets are implemented by a separate team - this may also inform this decision.
 
