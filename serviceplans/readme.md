@@ -20,7 +20,7 @@ In the above diagram we have the front-end web apps which are app restricted to 
 The documentation on app services [VNet integration](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) states a number of limitations:
 ![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/serviceplans/doc-excerpt.png "VNet integrations limitations")
 
-The item highlighed **The integration subnet can be used by only one App Service plan** is the the most important for planning how to implement a multi-tier web application with VNet integration.
+The item highlighted **The integration subnet can be used by only one App Service plan** is the most important for planning how to implement a multi-tier web application with VNet integration.
 
 ## Four potential patterns
 Depending on the customer needs, the above limitation results in what look like four potential approaches. These will be described in turn.
