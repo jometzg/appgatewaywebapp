@@ -23,7 +23,7 @@ The documentation on app services [VNet integration](https://docs.microsoft.com/
 The item highlighed **The integration subnet can be used by only one App Service plan** is the the most important for planning how to implement a multi-tier web application with VNet integration.
 
 ## Four potential patterns
-Depending on the customer needs, the above limitation results in what look like four potential approaches. These will be descibed in turn.
+Depending on the customer needs, the above limitation results in what look like four potential approaches. These will be described in turn.
 
 ### Pattern One
 ![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/serviceplans/overall-shared-service-plan.png "sharing service plans")
