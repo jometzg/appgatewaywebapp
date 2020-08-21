@@ -48,7 +48,7 @@ Where scalability of the web apps is important and the deployment team can influ
 ## Pattern Four
 ![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/serviceplans/multi-subnet4.png "subnet for each web app. Isolated front end")
 
-This is a variation of pattern two. In this case, if we want to guarantee that the front-end web app cannot itself access any remote resources, it is VNet integrated with an isolated VNet and the middle-tier (API) access restricted to its subnet.
+This is a variation of pattern two. In this case, if we want to guarantee that the front-end web app cannot itself access any remote (on premise potentially) resources, it is VNet integrated with an isolated VNet and the middle-tier (API) access restricted to its subnet.
 
 ## Summary
 The service plan limitations for VNet integration of app services requires you to think more carefully about whether you can tolerate web apps sharing a service plan, thus allowing a number of applications to share common VNet subnets, or whether you need to define subnets per application in order to have service plans per application and therefore the most flexibility in terms of scaling your applications. 
