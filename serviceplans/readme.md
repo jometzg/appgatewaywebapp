@@ -22,7 +22,7 @@ The documentation on app services [VNet integration](https://docs.microsoft.com/
 
 The item highlighted **The integration subnet can be used by only one App Service plan** is the most important for planning how to implement a multi-tier web application with VNet integration.
 
-## Four potential patterns
+## Five potential patterns
 Depending on the customer needs, the above limitation results in what look like four potential approaches. These will be described in turn.
 
 ### Pattern One
@@ -49,6 +49,12 @@ Where scalability of the web apps is important and the deployment team can influ
 ![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/serviceplans/multi-subnet4.png "subnet for each web app. Isolated front end")
 
 This is a variation of pattern two. In this case, if we want to guarantee that the front-end web app cannot itself access any remote (on premise potentially) resources, it is VNet integrated with an isolated VNet and the middle-tier (API) access restricted to its subnet.
+
+
+## Pattern Five
+![alt text](https://github.com/jometzg/appgatewaywebapp/blob/master/serviceplans/multi-workload-common-hub.png "subnet for each web app. Isolated networks")
+
+This is a variation of pattern four. In this case, if we want to guarantee network isolation between each workload and to have different service plans per workload, but are willing to have a VNet (strictly a pair of VNets) per workload, then this is the one to pick. It gives a high degree of network and compute isolation, with the added complexity of each workload requiring a pair of VNets, one of which is peered to the hub VNet.
 
 ## Summary
 The service plan limitations for VNet integration of app services requires you to think more carefully about whether you can tolerate web apps sharing a service plan, thus allowing a number of applications to share common VNet subnets, or whether you need to define subnets per application in order to have service plans per application and therefore the most flexibility in terms of scaling your applications. 
